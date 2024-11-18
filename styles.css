@@ -1,0 +1,449 @@
+
+
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Apply background image to the entire page */
+body {
+  background-image: url('C:\Users\user\Desktop\taskmaster\New folder\task.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 100vh;
+  margin: 0;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* Container for centralizing content */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Status colors */
+.status-completed {
+  color: green;
+  font-weight: bold;
+}
+
+.status-pending {
+  color: red;
+  font-weight: bold;
+}
+
+/* General styles for table */
+#task-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#task-table th,
+#task-table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+#task-table th {
+  background-color: #110f0f;
+}
+
+/* Center the modal */
+.modal {
+  position: fixed;
+  top: 60%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  height: auto;
+  display: none;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content {
+ 
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Modal buttons */
+button {
+  background-color: #fcd200;
+  border: none;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #e0b100;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Styling for headers */
+.header {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.header h1 {
+  font-size: 2em;
+}
+
+/* Task List styling */
+.task-list {
+  margin-top: 20px;
+}
+
+/* Add Task Button */
+.add-task-btn {
+  background-color: #fcd200;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.add-task-btn:hover {
+  background-color: #e0b100;
+}
+
+/* General Container Style (Fixed size with scrollable content inside) */
+.welcome-container,
+.signin-container,
+.login-container,
+.dashboard-container,
+.calendar-container {
+  display: grid;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  overflow-y: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  background-color: #222;
+}
+
+/* Content Box (Main Card) */
+.content {
+  background-color: #222;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 450px;
+  overflow-y: auto;
+  text-align: center;
+  transform: scale(0.95);
+  opacity: 0;
+  animation: zoomIn 0.8s ease-out forwards;
+}
+
+/* Grid Layout for Image Container */
+.images {
+  display: flexbox;
+  place-items: center;
+  width: 100%;
+  height: 70%;
+}
+
+/* Image Styling */
+.image {
+  max-width: 100%; /* Ensures image does not overflow container */
+  height: 250px; /* Maintain aspect ratio */
+  border-radius: 10px; /* Optional rounded corners */
+  object-fit: cover; /* Ensures image fits well within the container */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Soft shadow around image */
+  margin-bottom: 5px; /* Reduced space between image and next element */
+  margin-top: 0px;
+  padding: 0;
+}
+
+/* Logo Styling */
+.logo img {
+  max-width: 70px; /* Adjusted logo size */
+  margin-bottom: 0px; /* Reduced margin */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}
+
+/* Heading */
+h2, h1, h4 {
+  padding-top: 0;
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #fff; /* White text */
+  margin-bottom: 5px;
+}
+
+h1 {
+  font-size: 2rem; /* Larger heading for larger screens */
+}
+
+/* Button Styling */
+.cta-button button, .signin-button button, .login-button button {
+  background-color: #fcd200; /* Yellow buttons */
+  color: black; /* Dark text on yellow button */
+  padding: 15px 25px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  margin-top: 20px; /* Space between button and previous elements */
+}
+
+.cta-button button:hover, .signin-button button:hover, .login-button button:hover {
+  background-color: #e5b500; /* Darker yellow on hover */
+}
+
+/* Input Fields */
+input[type="email"], input[type="password"], input[type="text"], input[type="date"], input[type="time"], select {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  border: 1px solid #fcd200; /* Yellow border */
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: #333;
+  color: white;
+}
+
+input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focus {
+  border-color: #fcd200;
+  outline: none;
+}
+
+
+
+.modal-content {
+  background-color: #333; /* Dark background for modal */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+}
+
+/* Task List Styling */
+.task-list {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.task-list h3 {
+  font-size: 1.6rem;
+  color: #fff; /* White text for tasks */
+}
+
+.task-list ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.task-list li {
+  background-color: #444;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-list li button {
+  background-color: #fcd200; /* Yellow button for tasks */
+  color: black;
+  border: none;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.task-list li button:hover {
+  background-color: #e5b500; /* Darker yellow on hover */
+}
+
+/* Task Category Styles */
+.task-category {
+  display: inline-block;
+  background-color: #f71010;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 50px;
+  margin: 5px;
+  cursor: pointer;
+  animation: pulse 1.2s infinite ease-in-out;
+}
+
+.task-category:hover {
+  background-color: #c50909;
+}
+
+/* Animations */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+
+}
+
+/* Basic reset for nav */
+nav {
+  width: 100%; /* Ensure nav is full-width */
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex; /* Make the list items inline using flex */
+  justify-content: space-around; /* Space the items evenly */
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0 10px; /* Space between the buttons */
+}
+
+.nav-links a {
+  text-decoration: none;
+  background-color: #fcd200; /* Neon yellow */
+  color: black; /* Black text */
+  padding: 12px 20px; /* Add padding for button appearance */
+  border-radius: 30px; /* Round corners for the button */
+  font-size: 1.1rem;
+  display: inline-flex; /* Make the links appear inline */
+  align-items: center; /* Center the text vertically */
+  justify-content: center; /* Center the text horizontally */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  box-shadow: 0 0 10px #fcd200, 0 0 20px #fcd200, 0 0 30px #fcd200, 0 0 40px #fcd200; /* Neon glow effect */
+}
+
+/* Hover effect for neon glow */
+.nav-links a:hover {
+  color: white; /* Change text to white on hover */
+  background-color: #fcd200; /* Keep the yellow background */
+  box-shadow: 0 0 15px #fcd200, 0 0 25px #fcd200, 0 0 40px #fcd200, 0 0 50px #fcd200; /* Brighter glow */
+  transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+/* Optional: Focus state for better accessibility */
+.nav-links a:focus {
+  outline: none;
+  box-shadow: 0 0 10px #fcd200, 0 0 20px #fcd200, 0 0 30px #fcd200, 0 0 40px #fcd200;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column; /* Stack the nav items vertically on smaller screens */
+    align-items: center;
+  }
+
+  .nav-links li {
+    margin: 10px 0; /* Add vertical spacing between buttons */
+  }
+}
+
+
+/* Media Queries */
+
+/* Tablet Layout */
+@media (max-width: 768px) {
+  .content {
+    width: 90%;
+    max-width: 400px; /* More space on smaller tablets */
+  }
+
+  .cta-button button {
+    font-size: 1rem;
+    padding: 12px 20px;
+  }
+}
+
+/* Mobile Layout */
+@media (max-width: 480px) {
+  .content {
+    padding: 10px;
+    width: 100%;
+    max-width: 100%; /* Full width for mobile */
+  }
+
+  .task-list li {
+    flex-direction: column; /* Stack items vertically */
+  }
+
+  .cta-button button {
+    font-size: 1rem;
+    padding: 12px 20px;
+  }
+}
+
+/* Fullscreen Web View for PC or Large Screens */
+@media (min-width: 1024px) {
+  .content {
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+  }
+
+  .cta-button button {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+  }
+}
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in - Task Master</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="content">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="./New folder/WhatsApp_Image_2024-11-16_at_21.29.17_7045bab0-removebg-preview.png" alt="Task Master Logo">
+            </div>
+            <!-- Heading -->
+            <h4>Log in to Task Master</h4>
+            
+            <!-- Success/Error Message Box -->
+            <div id="messageBox" class="message-box" style="display:none;"></div>
+            
+            <!-- Email Input -->
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <!-- Password Input -->
+            <input type="password" id="password" placeholder="Enter your password" required>
+            
+            <!-- Sign In Button -->
+            <div class="cta-button">
+                <button style=" box-shadow: 0 0 10px #fcd200, 0 0 20px #06f812, 0 0 30px #fcd200, 0 0 40px #fcd200;" onclick="signIn()">Sign In</button>
+            </div>
+            <br>
+            <!-- Sign Up Link -->
+            <div class="sign-up-link">
+                <h5>Don't have an account? <a href="signup.html">Sign Up</a></h5>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./script.js"></script>
+</html>

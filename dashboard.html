@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Task Master</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="loadDashboard()">
+    <div class="dashboard-container">
+        <div class="content">
+            <section>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="dashboard.html">Home</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="settings.html">Settings</a></li>
+                        <li><a href="index.html">Logout</a></li>
+                    </ul>
+                </nav>
+            </section>
+
+            <!-- Logo -->
+            <div class="logo">
+                <img src="./New folder/WhatsApp_Image_2024-11-16_at_21.29.17_7045bab0-removebg-preview.png" alt="Task Master Logo">
+            </div>
+
+            <!-- Welcome Message -->
+            <div id="welcomeMessage" style="box-shadow: 0 0 10px #fcd200, 0 0 20px #fcd200, 0 0 30px #fcd200, 0 0 40px #fcd200;">
+                <h2>Welcome, Guest!</h2>
+            </div>
+
+            <!-- Dashboard Actions -->
+            <div class="header">
+                <h1 style="justify-content: center;">Task Manager</h1>
+                <div class="header-buttons">
+                    <button style="box-shadow: 0 0 10px #fcd200, 0 0 20px #fcd200, 0 0 30px #fcd200, 0 0 40px #fcd200;" class="add-task-btn" id="show-add-task-form">Add Task</button>
+                </div>
+            </div>
+
+            <!-- Task List -->
+            <div class="task-list">
+                <h2>Task List</h2>
+                <table id="task-table">
+                    <thead>
+                        <tr>
+                            <th>Task Name</th>
+                            <th>Description</th>
+                            <th>Due Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Tasks will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Modal for Adding New Task -->
+            <div class="modal" id="taskModal" style="display: none;">
+                <div class="modal-content">
+                    <h2 id="modalTitle">Add New Task</h2>
+                    <form id="task-form">
+                        <input type="text" id="taskName" placeholder="Task Name" required>
+                        <textarea id="taskDesc" placeholder="Task Description" required></textarea>
+                        <input type="date" id="taskDate" required>
+                        <input type="time" id="taskTime" required>
+                        <input type="text" id="taskCategory" placeholder="Category" required>
+                        <label for="taskReminder">Reminder (minutes before):</label>
+                        <input type="number" id="taskReminder" placeholder="Minutes" min="1" required>
+                    </form>
+                    <div style="display: none;">
+                        <label>Status:</label>
+                        <input type="radio" id="status-completed" name="status" value="Completed"> Completed
+                        <input type="radio" id="status-pending" name="status" value="Pending" checked> Pending
+                    </div>
+                    <button id="saveButton" onclick="saveTask(event)">OK</button>
+                    <button onclick="closeAddTaskModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
